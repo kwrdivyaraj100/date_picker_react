@@ -6,6 +6,8 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
 function CalenderComp() {
+    const [calender, setCalender] = useState("");
+    const [open, setOpen] = useState(false);
     return (
         <div>CalenderComp</div>
     )
