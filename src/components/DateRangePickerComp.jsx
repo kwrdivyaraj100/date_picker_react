@@ -1,8 +1,10 @@
-import { DateRangePicker } from '@mui/x-date-pickers-pro';
+import { TextField } from '@mui/material';
 import { addDays } from 'date-fns';
-import React, { useRef, useState } from 'react';
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css';
+import format from 'date-fns/format';
+import React, { useEffect, useRef, useState } from 'react'
+import { DateRangePicker } from 'react-date-range';
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 
 function DateRangePickerComp() {
   const [range, setRange] = useState([{
@@ -30,6 +32,7 @@ function DateRangePickerComp() {
     document.addEventListener("keydown", hideOnEscape, true);
     document.addEventListener("click", hideOnClickOutside, true);
   }, [])
+
   return (
     <div style={{ 'textAlign': 'center' }}>
       <TextField
