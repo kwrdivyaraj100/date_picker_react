@@ -5,8 +5,25 @@ import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
 import React, { useState } from 'react'
 
 function MUIDateRange() {
+    const [value, setValue] = useState([null, null]);
     return (
-        <div>MUIDateRange</div>
+        <LocalizationProvider
+            dateAdapter={AdapterDayjs}
+            localeText={{ start: "Check-in", end: "Chick-out" }}
+        >
+            <DateRangePicker value={value}
+                onChange={newValue => setValue(newValue)}
+                renderInput={(startProps, endProps) => (
+                    <React.Fragment>
+                        <TextField {...startProps} />
+                        <Box sx={{ mx: 0 }}> to </Box>
+                        <TextField {...endProps} />
+                    </React.Fragment>
+                )}
+            />
+
+        </LocalizationProvider>
+
     )
 }
 
