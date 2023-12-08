@@ -14,7 +14,21 @@ function CalenderComp() {
     }
 
     return (
-        <div>CalenderComp</div>
+        <div style={{ 'textAlign': 'center' }}>
+            <TextField
+                label="Select Date"
+                name="date"
+                variant='outlined'
+                value={calender}
+                onClick={() => setOpen(open => !open)}
+            />
+            <br />
+
+            {open &&
+                <Calendar
+                    date={new Date()}
+                    onChange={handelSelect} />}
+        </div>
     )
 }
 
