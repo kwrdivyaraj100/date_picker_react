@@ -1,10 +1,13 @@
 import './App.css';
+import { Chip, Divider } from '@mui/material';
+import CalenderComp from './components/CalenderComp';
 
 function App() {
   return (
-    <div >
-    
-    </div>
+    <>
+      <Divider><Chip label="Calender" /></Divider>
+      <CalenderComp />
+    </>
   );
 }
 
