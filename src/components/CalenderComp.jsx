@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material';
 import format from 'date-fns/format';
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Calendar } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -24,6 +24,11 @@ function CalenderComp() {
             setOpen(false);
         }
     }
+    useEffect(() => {
+        setCalender(format(new Date(), 'dd/MM/yyyy'));
+        document.addEventListener("keydown", hideOnEscape, true);
+        document.addEventListener("click", hideOnClickOutside, true);
+    }, [])
 
     return (
         <div style={{ 'textAlign': 'center' }}>
