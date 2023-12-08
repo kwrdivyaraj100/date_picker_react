@@ -1,4 +1,7 @@
-import React from 'react';
+import { addDays } from 'date-fns';
+import React, { useRef, useState } from 'react';
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
 
 function DateRangePickerComp() {
   const [range, setRange] = useState([{
@@ -9,6 +12,23 @@ function DateRangePickerComp() {
 
   const [open, setOpen] = useState(false);
   const refOne = useRef(null);
+
+  function hideOnEscape(e) {
+    if (e.key === "Escape") {
+      setOpen(false)
+    }
+  }
+
+  function hideOnClickOutside(e) {
+    if (refOne.current && !refOne.current.contains(e.target)) {
+      setOpen(false);
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("keydown", hideOnEscape, true);
+    document.addEventListener("click", hideOnClickOutside, true);
+  }, [])
   return (
     <div>DateRangePickerComp</div>
   )
