@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material';
 import format from 'date-fns/format';
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Calendar } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -11,6 +11,13 @@ function CalenderComp() {
 
     function handelSelect(date) {
         setCalender(format(date, 'dd/MM/yyyy'));
+    }
+    const refOne = useRef(null);
+
+    function hideOnEscape(e) {
+        if (e.key === "Escape") {
+            setOpen(false)
+        }
     }
 
     return (
