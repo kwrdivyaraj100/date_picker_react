@@ -8,6 +8,11 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 function CalenderComp() {
     const [calender, setCalender] = useState("");
     const [open, setOpen] = useState(false);
+
+    function handelSelect(date) {
+        setCalender(format(date, 'dd/MM/yyyy'));
+    }
+
     return (
         <div>CalenderComp</div>
     )
